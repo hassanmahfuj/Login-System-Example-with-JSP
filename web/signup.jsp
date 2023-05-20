@@ -24,19 +24,20 @@
             </div>
             <div class="col-6 d-flex justify-content-center align-items-center">
                 <div class="w-75 bg-white p-4 rounded shadow">
-                    <form>
+                    <form action="create.jsp">
                         <div>
                             <label class="col-form-label" for="fullname">Full Name</label>
-                            <input class="form-control" id="fullname" name="fullname" />
+                            <input class="form-control ${empty param.errmsg ? '' : 'is-invalid'}" id="fullname" name="fullname" />
                         </div>
                         <div>
                             <label class="col-form-label" for="email">Email</label>
-                            <input class="form-control" id="email" name="email" />
+                            <input class="form-control ${empty param.errmsg ? '' : 'is-invalid'}" id="email" name="email" />
                         </div>
                         <div>
                             <label class="col-form-label" for="password">Password</label>
-                            <input class="form-control" type="password" id="password" name="password" />
+                            <input class="form-control ${empty param.errmsg ? '' : 'is-invalid'}" type="password" id="password" name="password" />
                         </div>
+                        <div class="mt-2">${param.errmsg}</div>
                         <div class="mt-4">
                             <button class="btn btn-success w-100" type="submit">Create account</button>
                         </div>

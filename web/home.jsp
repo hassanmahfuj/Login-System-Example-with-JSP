@@ -4,6 +4,7 @@
     Author     : Hassan Mahfuj
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,13 +19,16 @@
         </style>
     </head>
     <body class="container bg-color">
+        <c:if test="${empty sessionScope.fullname}">
+            <c:redirect url="index.jsp"/>
+        </c:if>
         <div class="row mt-4">
             <div class="col-9">
                 <h1>Welcome, ${sessionScope["fullname"]}</h1>
             </div>
             <div class="col-3">
                 <div>
-                    <button class="btn btn-danger w-100">Logout</button>
+                    <button class="btn btn-danger w-100" onclick="window.location.href='logout.jsp'">Logout</button>
                 </div>
             </div>
         </div>
